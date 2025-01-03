@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Seeker from "./ui/seeker/Seeker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="w-full h-16 bg-gray-800 flex items-center justify-center">
+          <Seeker />
+        </header>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );
