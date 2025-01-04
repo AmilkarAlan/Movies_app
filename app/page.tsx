@@ -1,6 +1,23 @@
+"use client";
+import { useEffect, useState } from 'react';
+import { apiFetch } from "./lib/requests";
+import Carousel from './ui/carousel/Carousel';
 
 
 export default function Home() {
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPopularMovies() {
+      const data = await apiFetch("movie/popular", { language: "es-419", page: 1, region: "MX" });
+      setPopularMovies(data.results);
+      setLoading(false);
+    }
+    fetchPopularMovies();
+  }, []);
+
+
   return (
     <div className="w-full h-screen text-black">
       <section className="w-full h-1/2 flex flex-col relative">
@@ -15,11 +32,13 @@ export default function Home() {
       <section className="w-full h-1/2 text-white">
         <div>
           <div>Filtro: hoy, semana</div>
-          <h1>
-            Tendencias
-          </h1>
+          <h1>Peliculas populares</h1>
           <div>
-            Card de peliculas
+            {loading ? (
+              <p>Cargando...</p>
+            ) : (
+              <Carousel list={popularMovies} />
+            )}
           </div>
         </div>
       </section>
