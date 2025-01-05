@@ -48,13 +48,13 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen text-black">
-      <section className="w-full h-1/2 flex flex-col relative">
+      <section className="w-full h-full flex flex-col relative overflow-hidden">
         <div className="w-full h-full">
           {loading ? (
             <p>Cargando...</p>
           ) : (
-            <div className="w-full flex">
-              <div className="w-3/4">
+            <div className="w-full flex justify-end relative">
+              <div className="w-full absolute -z-10">
               <Slider {...mainSliderSettings} ref={(slider1) => setNav1(slider1)}>
                 {popularMovies.map((movie) => (
 
@@ -62,20 +62,20 @@ export default function Home() {
                     key={movie.id}
                     src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
                     alt={movie.title || movie.name}
-                    className="h-1/4 object-cover"
+                    className="w-full object-contain"
                   />
 
                 ))}
               </Slider>
               </div>
-              <div className="w-1/4 pl-4">
+              <div className="w-1/4 h-full bg-gray-800">
                 <Slider {...thumbnailSliderSettings} ref={(slider2) => setNav2(slider2)}>
                   {popularMovies.map((movie) => (
                     <div key={movie.id} className="cursor-pointer">
                       <img
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                         alt={movie.title || movie.name}
-                        className="w-full h-24 object-cover rounded-md border border-gray-300"
+                        className="w-1/2 h-full object-cover rounded-md border border-gray-300"
                       />
                     </div>
                   ))}
@@ -84,10 +84,6 @@ export default function Home() {
             </div>
 
           )}
-        </div>
-        <div className="w-full h-full flex flex-col items-center justify-center z-10">
-          <h2>Toda la información de tus peliculas favoritas</h2>
-          <p>En un solo lugar.</p>
         </div>
       </section>
       <section className="w-full h-1/2 text-white">
