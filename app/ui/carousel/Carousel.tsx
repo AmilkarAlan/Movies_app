@@ -18,7 +18,7 @@ export default function Carousel({ list }) {
     return (
         <Slider {...settings}>
             {list.map((item) => (
-                <Card item={item} />
+                <Card key={item.id} item={item} />
             ))}
         </Slider>
     )
