@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative h-screen w-screen`}
       >
         <header className="w-full h-16 bg-gray-800 flex items-center justify-center sticky top-0 z-20">
           <Seeker />

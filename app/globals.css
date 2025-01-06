@@ -19,32 +19,3 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.slick-dots.slick-thumb {
-  position: relative;
-  top: 0;
-  right: -6rem; /* Ajusta según tu diseño */
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-.slick-thumb a {
-  display: block;
-  width: 4rem; /* Tamaño del thumbnail */
-  height: 4rem;
-  border: 2px solid transparent;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  transition: border-color 0.3s ease;
-}
-.slick-thumb a:hover {
-  border-color: #3b82f6; /* Color de borde al pasar el mouse */
-}
-
-.slick-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
